@@ -1,22 +1,26 @@
 package com.zhangxq.democollection;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.zhangxq.democollection.toucheventdemo.TouchEventActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements AdapterView.OnItemClickListener {
     @Bind(R.id.listView)
     ListView listView;
 
-    String[] items = new String[]{"retrofitDemo", "TouchEventDemo", "TouchEventDemo", "TouchEventDemo", "TouchEventDemo"};
+    String[] items = new String[]{"retrofitDemo", "TouchEventDemo"};
     private ListAdapter adapter;
 
     @Override
@@ -27,6 +31,22 @@ public class MainActivity extends Activity {
 
         adapter = new ListAdapter();
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+
+                break;
+            case 1:
+                Intent intent = new Intent(this, TouchEventActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
     private class ListAdapter extends BaseAdapter {
