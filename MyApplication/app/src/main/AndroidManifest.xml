@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhangxq.democollection">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,8 @@
         </activity>
 
         <activity android:name=".toucheventdemo.TouchEventActivity" />
+        <activity android:name=".androidwheeldemo.AndroidWheelActivity" />
+        <activity android:name=".retrofitdemo.RetrofitActivity" />
     </application>
 
 </manifest>

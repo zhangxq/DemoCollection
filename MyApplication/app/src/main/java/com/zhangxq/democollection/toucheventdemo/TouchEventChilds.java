@@ -4,10 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class TouchEventChilds extends LinearLayout {
+public class TouchEventChilds extends View {
+
+    public ReturnType dispatchReturnType;
+    public ReturnType onTouchReturnType;
 
     private ChildTouchListener listener;
 
@@ -24,16 +28,23 @@ public class TouchEventChilds extends LinearLayout {
         if (listener != null) {
             listener.onChildTouch(message);
         }
-        return super.dispatchTouchEvent(ev);
+
+        if (dispatchReturnType == ReturnType.YES) {
+            return true;
+        } else if (dispatchReturnType == ReturnType.NO) {
+            return false;
+        } else {
+            return super.dispatchTouchEvent(ev);
+        }
     }
 
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        String message = "Childs | intercept --> " + TouchEventUtil.getTouchAction(ev.getAction());
-        if (listener != null) {
-            listener.onChildTouch(message);
-        }
-        return super.onInterceptTouchEvent(ev);
-    }
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        String message = "Childs | intercept --> " + TouchEventUtil.getTouchAction(ev.getAction());
+//        if (listener != null) {
+//            listener.onChildTouch(message);
+//        }
+//        return super.onInterceptTouchEvent(ev);
+//    }
 
     public boolean onTouchEvent(MotionEvent ev) {
         String message = "Childs | touchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction());
@@ -45,7 +56,14 @@ public class TouchEventChilds extends LinearLayout {
                 listener.onChildTouchUp();
             }
         }
-        return false;
+
+        if (onTouchReturnType == ReturnType.YES) {
+            return true;
+        } else if (onTouchReturnType == ReturnType.NO) {
+            return false;
+        } else {
+            return super.onTouchEvent(ev);
+        }
     }
 
     /**
@@ -55,6 +73,8 @@ public class TouchEventChilds extends LinearLayout {
      */
     public void setListener(ChildTouchListener listener) {
         this.listener = listener;
+        dispatchReturnType = ReturnType.DEFAULT;
+        onTouchReturnType = ReturnType.DEFAULT;
     }
 
     /**

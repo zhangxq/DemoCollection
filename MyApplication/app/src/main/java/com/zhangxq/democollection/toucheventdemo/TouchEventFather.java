@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 
 public class TouchEventFather extends LinearLayout {
 
+    public ReturnType dispatchReturnType;
+    public ReturnType onTouchReturnType;
+
     private FatherTouchListener listener;
 
     public TouchEventFather(Context context) {
@@ -23,16 +26,23 @@ public class TouchEventFather extends LinearLayout {
         if (listener != null) {
             listener.onFatherTouch(message);
         }
-        return super.dispatchTouchEvent(ev);
+
+        if (dispatchReturnType == ReturnType.YES) {
+            return true;
+        } else if (dispatchReturnType == ReturnType.NO) {
+            return false;
+        } else {
+            return super.dispatchTouchEvent(ev);
+        }
     }
 
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        String message = "Father | intercept --> " + TouchEventUtil.getTouchAction(ev.getAction());
-        if (listener != null) {
-            listener.onFatherTouch(message);
-        }
-        return super.onInterceptTouchEvent(ev);
-    }
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        String message = "Father | intercept --> " + TouchEventUtil.getTouchAction(ev.getAction());
+//        if (listener != null) {
+//            listener.onFatherTouch(message);
+//        }
+//        return true;
+//    }
 
     public boolean onTouchEvent(MotionEvent ev) {
         String message = "Father | touchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction());
@@ -44,7 +54,14 @@ public class TouchEventFather extends LinearLayout {
                 listener.onFatherTouchUp();
             }
         }
-        return super.onTouchEvent(ev);
+
+        if (onTouchReturnType == ReturnType.YES) {
+            return true;
+        } else if (onTouchReturnType == ReturnType.NO) {
+            return false;
+        } else {
+            return super.onTouchEvent(ev);
+        }
     }
 
     /**
@@ -54,6 +71,8 @@ public class TouchEventFather extends LinearLayout {
      */
     public void setListener(FatherTouchListener listener) {
         this.listener = listener;
+        dispatchReturnType = ReturnType.DEFAULT;
+        onTouchReturnType = ReturnType.DEFAULT;
     }
 
     /**
