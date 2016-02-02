@@ -49,11 +49,6 @@ public class TouchEventFather extends LinearLayout {
         if (listener != null) {
             listener.onFatherTouch(message);
         }
-        if (ev.getAction() == MotionEvent.ACTION_UP) {
-            if (listener != null) {
-                listener.onFatherTouchUp();
-            }
-        }
 
         if (onTouchReturnType == ReturnType.YES) {
             return true;
@@ -80,7 +75,6 @@ public class TouchEventFather extends LinearLayout {
      */
     public interface FatherTouchListener {
         void onFatherTouch(String textView);
-        void onFatherTouchUp();
     }
 
 }

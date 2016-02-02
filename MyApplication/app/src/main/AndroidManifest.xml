@@ -23,6 +23,7 @@
         <activity android:name=".toucheventdemo.TouchEventActivity" />
         <activity android:name=".androidwheeldemo.AndroidWheelActivity" />
         <activity android:name=".retrofitdemo.RetrofitActivity" />
+        <activity android:name=".animatordemo.AnimatorActivity" />
     </application>
 
 </manifest>

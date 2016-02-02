@@ -51,11 +51,6 @@ public class TouchEventChilds extends View {
         if (listener != null) {
             listener.onChildTouch(message);
         }
-        if (ev.getAction() == MotionEvent.ACTION_UP) {
-            if (listener != null) {
-                listener.onChildTouchUp();
-            }
-        }
 
         if (onTouchReturnType == ReturnType.YES) {
             return true;
@@ -82,6 +77,5 @@ public class TouchEventChilds extends View {
      */
     public interface ChildTouchListener {
         void onChildTouch(String textView);
-        void onChildTouchUp();
     }
 }

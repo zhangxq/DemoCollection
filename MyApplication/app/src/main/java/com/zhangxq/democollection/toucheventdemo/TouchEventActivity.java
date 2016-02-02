@@ -84,6 +84,12 @@ public class TouchEventActivity extends Activity implements TouchEventChilds.Chi
         fatherEnable = !fatherEnable;
     }
 
+    @OnClick(R.id.buttonClear)
+    void onButtonClearClick() {
+        message = "";
+        textView.setText(message);
+    }
+
     public boolean dispatchTouchEvent(MotionEvent ev) {
 //        message += "TouchEventActivity | dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()) + "\n";
 //        textView.setText(message);
@@ -104,22 +110,10 @@ public class TouchEventActivity extends Activity implements TouchEventChilds.Chi
     }
 
     @Override
-    public void onChildTouchUp() {
-        Log.d("child", "touchup");
-        message = "";
-    }
-
-    @Override
     public void onFatherTouch(String text) {
         Log.d("father", text);
         message = message + text + "\n";
         textView.setText(message);
-    }
-
-    @Override
-    public void onFatherTouchUp() {
-        Log.d("father", "touchup");
-        message = "";
     }
 
     @Override
