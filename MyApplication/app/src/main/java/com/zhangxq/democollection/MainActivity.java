@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.zhangxq.democollection.actionbardemo.BarActivity;
 import com.zhangxq.democollection.androidwheeldemo.AndroidWheelActivity;
 import com.zhangxq.democollection.animatordemo.AnimatorActivity;
 import com.zhangxq.democollection.retrofitdemo.RetrofitActivity;
@@ -23,7 +24,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Bind(R.id.listView)
     ListView listView;
 
-    String[] items = new String[]{"retrofitDemo", "TouchEventDemo", "androidWheelDemo", "animatorDemo"};
+    String[] items = new String[]{"retrofitDemo", "TouchEventDemo", "androidWheelDemo", "animatorDemo", "actionBarDemo"};
     private ListAdapter adapter;
 
     @Override
@@ -55,6 +56,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             case 3:
                 Intent intent3 = new Intent(this, AnimatorActivity.class);
                 startActivity(intent3);
+                break;
+            case 4:
+                Intent intent4 = new Intent(this, BarActivity.class);
+                startActivity(intent4);
+                break;
             default:
                 break;
         }
