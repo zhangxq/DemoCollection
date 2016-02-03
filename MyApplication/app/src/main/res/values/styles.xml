@@ -19,7 +19,6 @@
         <item name="android:titleTextStyle">@style/TitleTextStyle</item>
         <item name="android:background">@drawable/action_bar_bg</item>
         <item name="android:homeAsUpIndicator">@drawable/action_bar_back</item>
-        <item name="android:gravity">center</item>
         <!-- Support library compatibility -->
         <item name="titleTextStyle">@style/TitleTextStyle</item>
         <item name="background">@drawable/action_bar_bg</item>
