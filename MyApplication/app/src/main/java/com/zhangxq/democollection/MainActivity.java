@@ -15,6 +15,7 @@ import com.zhangxq.democollection.androidwheeldemo.AndroidWheelActivity;
 import com.zhangxq.democollection.animatordemo.AnimatorActivity;
 import com.zhangxq.democollection.listenedscrollviewdemo.ScrollActivity;
 import com.zhangxq.democollection.retrofitdemo.RetrofitActivity;
+import com.zhangxq.democollection.toolbardemo.ToolBarDemoActivity;
 import com.zhangxq.democollection.toucheventdemo.TouchEventActivity;
 
 import butterknife.Bind;
@@ -25,7 +26,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Bind(R.id.listView)
     ListView listView;
 
-    String[] items = new String[]{"retrofitDemo", "TouchEventDemo", "androidWheelDemo", "animatorDemo", "actionBarDemo", "listenedScrollDemo"};
+    String[] items = new String[]{"retrofitDemo", "TouchEventDemo",
+            "androidWheelDemo", "animatorDemo", "actionBarDemo",
+            "listenedScrollDemo", "toolbarDemo"};
     private ListAdapter adapter;
 
     @Override
@@ -65,6 +68,10 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             case 5:
                 Intent intent5 = new Intent(this, ScrollActivity.class);
                 startActivity(intent5);
+                break;
+            case 6:
+                Intent intent6 = new Intent(this, ToolBarDemoActivity.class);
+                startActivity(intent6);
                 break;
             default:
                 break;

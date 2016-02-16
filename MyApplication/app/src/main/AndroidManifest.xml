@@ -27,6 +27,9 @@
             android:name=".actionbardemo.BarActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".listenedscrollviewdemo.ScrollActivity" />
+        <activity
+            android:name=".toolbardemo.ToolBarDemoActivity"
+            android:theme="@style/ThemeNoActionBar" />
     </application>
 
 </manifest>

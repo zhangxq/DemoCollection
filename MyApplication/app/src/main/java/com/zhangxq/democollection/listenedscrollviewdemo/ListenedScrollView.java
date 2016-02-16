@@ -5,13 +5,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 一款可以检测scrollView滚动状态的ScrollView，是否正在滚动，是否停止等
+ * 可以检测scrollView滚动状态的ScrollView，是否正在滚动，是否停止等
  * 实现原理：使用Timer获取scrollY的变动，判断当前是否处于滚动状态
  * <p/>
  * Created by zhangxq on 16/2/15.
@@ -91,5 +92,10 @@ public class ListenedScrollView extends ScrollView {
             }
             super.handleMessage(msg);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        return super.onTouchEvent(ev);
     }
 }
