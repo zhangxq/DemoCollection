@@ -14,6 +14,7 @@
         android:layout_height="match_parent">
 
         <ImageButton
+            android:id="@+id/imageButtonBack"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
@@ -21,6 +22,7 @@
             android:src="@drawable/action_bar_back" />
 
         <TextView
+            android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="60dp"
@@ -33,6 +35,7 @@
             android:textSize="16dp" />
 
         <ImageButton
+            android:id="@+id/imageButtonOption"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"

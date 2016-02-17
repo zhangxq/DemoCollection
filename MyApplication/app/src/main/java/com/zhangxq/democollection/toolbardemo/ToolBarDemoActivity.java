@@ -1,10 +1,7 @@
 package com.zhangxq.democollection.toolbardemo;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.widget.Toast;
 
 import com.zhangxq.democollection.R;
 
@@ -17,7 +14,17 @@ public class ToolBarDemoActivity extends ToolBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toolbar_demo);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.id_tool_bar);
-        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public void onToolBarBackPress() {
+//        super.onToolBarBackPress();
+        Toast.makeText(this, "back pressed", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onToolBarOptionPress() {
+//        super.onToolBarOptionPress();
+        Toast.makeText(this, "option pressed", Toast.LENGTH_LONG).show();
     }
 }
