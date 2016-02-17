@@ -7,4 +7,4 @@
 5、actionBar的使用，style设置
 6、自定义的scrollView，可以监听滚动的结束，包含纵向滚动和横向滚动
 7、自定义toolbar的简单使用
-8、自定义progress
+8、自定义progressbar
