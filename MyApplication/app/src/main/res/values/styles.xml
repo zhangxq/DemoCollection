@@ -36,11 +36,16 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+
+    <!--toolbar主题-->
     <style name="ThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="toolbarStyle">@style/MyToolBar</item>
+        <item name="android:actionBarStyle">@style/MyToolBar</item>
+        <item name="android:actionBarSize">48dp</item>
+        <item name="android:title">标题栏</item>
+
         <item name="colorPrimary">@color/theme_color</item>
         <item name="actionBarSize">48dp</item>
-        <item name="android:actionBarSize">48dp</item>
+        <item name="actionBarStyle">@style/MyToolBar</item>
     </style>
 
     <style name="MyToolBar" parent="Widget.AppCompat.Toolbar">
@@ -52,5 +57,7 @@
         <item name="background">@drawable/action_bar_bg</item>
         <item name="homeAsUpIndicator">@drawable/action_bar_back</item>
     </style>
+
+    <style name="ThemeToolBar" parent="ThemeNoActionBar"></style>
 
 </resources>

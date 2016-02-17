@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="theme_color">#ff9d55b8</color>
+    <color name="dark_theme_color">#ff7b33b6</color>
     <color name="title_color">#ffffffff</color>
 </resources>

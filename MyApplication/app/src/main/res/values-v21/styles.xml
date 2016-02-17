@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeToolBar" parent="ThemeNoActionBar">
+        <item name="android:navigationBarColor">@color/dark_theme_color</item>
+    </style>
+</resources>
