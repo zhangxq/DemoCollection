@@ -32,13 +32,6 @@ public class ToolBarActivity extends AppCompatActivity {
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         ButterKnife.bind(this);
-        setToolBar();
-    }
-
-    /**
-     * 初始化toolbar
-     */
-    private void setToolBar() {
         setSupportActionBar(toolbar);
     }
 
@@ -68,5 +61,41 @@ public class ToolBarActivity extends AppCompatActivity {
      */
     public void onToolBarOptionPress() {
 
+    }
+
+    /**
+     * 设置标题栏
+     *
+     * @param resId
+     */
+    public void setTitle(int resId) {
+        textViewTitle.setText(resId);
+    }
+
+    /**
+     * 设置标题栏
+     *
+     * @param title
+     */
+    public void setTitle(String title) {
+        textViewTitle.setText(title);
+    }
+
+    /**
+     * 设置返回按钮图标
+     *
+     * @param resId
+     */
+    public void setButtonBackImage(int resId) {
+        imageButtonBack.setImageResource(resId);
+    }
+
+    /**
+     * 设置右上角按钮图标
+     *
+     * @param resId
+     */
+    public void setButtonOptionImage(int resId) {
+        imageButtonOption.setImageResource(resId);
     }
 }
