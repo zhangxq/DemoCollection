@@ -14,6 +14,9 @@ public class ToolBarDemoActivity extends ToolBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toolbar_demo);
+        setTitle("自定义标题栏");
+//        setButtonBackImage(R.drawable.actionbar_menu);
+//        setButtonOptionImage(R.drawable.actionbar_menu);
     }
 
     @Override
