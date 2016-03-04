@@ -32,6 +32,7 @@
             android:theme="@style/ThemeToolBar" />
 
         <activity android:name=".progressdemo.ProgressActivity" />
+        <activity android:name=".imagescrolldemo.ScrollImageActivity" />
     </application>
 
 </manifest>
