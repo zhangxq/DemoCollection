@@ -13,8 +13,11 @@ import android.widget.TextView;
 import com.zhangxq.democollection.actionbardemo.BarActivity;
 import com.zhangxq.democollection.androidwheeldemo.AndroidWheelActivity;
 import com.zhangxq.democollection.animatordemo.AnimatorActivity;
+import com.zhangxq.democollection.danmudemo.DanmuActivity;
+import com.zhangxq.democollection.editmovedemo.EditMoveActivity;
 import com.zhangxq.democollection.imagescrolldemo.ScrollImageActivity;
 import com.zhangxq.democollection.listenedscrollviewdemo.ScrollActivity;
+import com.zhangxq.democollection.marqueedemo.MarqueeActivity;
 import com.zhangxq.democollection.progressdemo.ProgressActivity;
 import com.zhangxq.democollection.retrofitdemo.RetrofitActivity;
 import com.zhangxq.democollection.toolbardemo.ToolBarDemoActivity;
@@ -31,7 +34,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     String[] items = new String[]{"retrofitDemo", "TouchEventDemo",
             "androidWheelDemo", "animatorDemo", "actionBarDemo",
             "listenedScrollDemo", "toolbarDemo", "progressDemo",
-            "scrollImageDemo" };
+            "scrollImageDemo", "danmuDemo", "editMoveDemo", "marqueeDemo"};
     private ListAdapter adapter;
 
     @Override
@@ -84,6 +87,17 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
                 Intent intent8 = new Intent(this, ScrollImageActivity.class);
                 startActivity(intent8);
                 break;
+            case 9:
+                Intent intent9 = new Intent(this, DanmuActivity.class);
+                startActivity(intent9);
+                break;
+            case 10:
+                Intent intent10 = new Intent(this, EditMoveActivity.class);
+                startActivity(intent10);
+                break;
+            case 11:
+                Intent intent11 = new Intent(this, MarqueeActivity.class);
+                startActivity(intent11);
             default:
                 break;
         }

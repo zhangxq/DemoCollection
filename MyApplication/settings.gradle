@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':vitamio'
+project(':vitamio').projectDir = new File('libs/vitamio')

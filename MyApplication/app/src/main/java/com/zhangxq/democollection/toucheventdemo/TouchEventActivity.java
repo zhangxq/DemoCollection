@@ -91,14 +91,14 @@ public class TouchEventActivity extends Activity implements TouchEventChilds.Chi
     }
 
     public boolean dispatchTouchEvent(MotionEvent ev) {
-//        message += "TouchEventActivity | dispatchTouchEvent --> " + TouchEventUtil.getTouchAction(ev.getAction()) + "\n";
-//        textView.setText(message);
+        message += "Activity | dispatch --> " + TouchEventUtil.getTouchAction(ev.getAction()) + "\n";
+        textView.setText(message);
         return super.dispatchTouchEvent(ev);
     }
 
     public boolean onTouchEvent(MotionEvent event) {
-//        message += "TouchEventActivity | onTouchEvent --> " + TouchEventUtil.getTouchAction(event.getAction()) + "\n";
-//        textView.setText(message);
+        message += "Activity | touchEvent --> " + TouchEventUtil.getTouchAction(event.getAction()) + "\n";
+        textView.setText(message);
         return super.onTouchEvent(event);
     }
 

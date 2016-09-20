@@ -41,12 +41,12 @@ public class ScrollImageActivity extends Activity {
         final int windowWidth = wm.getDefaultDisplay().getWidth();
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.action_bar_back) // 设置图片下载期间显示的图片
-                .showImageForEmptyUri(R.drawable.action_bar_back) // 设置图片Uri为空或是错误的时候显示的图片
-                .showImageOnFail(R.drawable.action_bar_back) // 设置图片加载或解码过程中发生错误显示的图片
-                .cacheInMemory(true) // 设置下载的图片是否缓存在内存中
+                .showImageOnLoading(R.drawable.action_bar_back)
+                .showImageForEmptyUri(R.drawable.action_bar_back)
+                .showImageOnFail(R.drawable.action_bar_back)
+                .cacheInMemory(true)
                 .cacheOnDisk(true)
-                .bitmapConfig(Bitmap.Config.ARGB_8888)// 设置下载的图片是否缓存在SD卡中
+                .bitmapConfig(Bitmap.Config.ARGB_8888)
                 .build();
 
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this));
