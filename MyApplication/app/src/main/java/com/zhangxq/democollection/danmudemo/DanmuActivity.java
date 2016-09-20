@@ -27,7 +27,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.zhangxq.democollection.R;
@@ -61,92 +63,30 @@ import master.flame.danmaku.danmaku.util.IOUtils;
 public class DanmuActivity extends Activity implements View.OnClickListener {
 
     private IDanmakuView mDanmakuView;
-    private View mMediaController;
-    private Button mBtnRotate;
-    private Button mBtnHideDanmaku;
-    private Button mBtnShowDanmaku;
-    private Button mBtnPauseDanmaku;
-    private Button mBtnResumeDanmaku;
     private Button mBtnSendDanmaku;
-    private Button mBtnSendDanmakuTextAndImage;
-    private Button mBtnSendDanmakus;
-
+    private EditText editText;
     private DanmuControl danmuControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danmuku);
-        mMediaController = findViewById(R.id.media_controller);
-        mBtnRotate = (Button) findViewById(R.id.rotate);
-        mBtnHideDanmaku = (Button) findViewById(R.id.btn_hide);
-        mBtnShowDanmaku = (Button) findViewById(R.id.btn_show);
-        mBtnPauseDanmaku = (Button) findViewById(R.id.btn_pause);
-        mBtnResumeDanmaku = (Button) findViewById(R.id.btn_resume);
-        mBtnSendDanmaku = (Button) findViewById(R.id.btn_send);
-        mBtnSendDanmakuTextAndImage = (Button) findViewById(R.id.btn_send_image_text);
-        mBtnSendDanmakus = (Button) findViewById(R.id.btn_send_danmakus);
-        mBtnRotate.setOnClickListener(this);
-        mBtnHideDanmaku.setOnClickListener(this);
-        mMediaController.setOnClickListener(this);
-        mBtnShowDanmaku.setOnClickListener(this);
-        mBtnPauseDanmaku.setOnClickListener(this);
-        mBtnResumeDanmaku.setOnClickListener(this);
-        mBtnSendDanmaku.setOnClickListener(this);
-        mBtnSendDanmakuTextAndImage.setOnClickListener(this);
-        mBtnSendDanmakus.setOnClickListener(this);
         mDanmakuView = (IDanmakuView) findViewById(R.id.sv_danmaku);
-
-        danmuControl = new DanmuControl(this);
-        danmuControl.setDanmakuView(mDanmakuView);
+        editText = (EditText) findViewById(R.id.editText);
+        mBtnSendDanmaku = (Button) findViewById(R.id.btn_send);
+        mBtnSendDanmaku.setOnClickListener(this);
+        danmuControl = new DanmuControl(this, mDanmakuView);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mMediaController) {
-            mMediaController.setVisibility(View.GONE);
-        }
-        if (mDanmakuView == null || !mDanmakuView.isPrepared())
-            return;
-        if (v == mBtnRotate) {
-            setRequestedOrientation(getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE ? ActivityInfo.SCREEN_ORIENTATION_PORTRAIT : ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        } else if (v == mBtnHideDanmaku) {
-            mDanmakuView.hide();
-        } else if (v == mBtnShowDanmaku) {
-            mDanmakuView.show();
-        } else if (v == mBtnPauseDanmaku) {
-            mDanmakuView.pause();
-        } else if (v == mBtnResumeDanmaku) {
-            mDanmakuView.resume();
-        } else if (v == mBtnSendDanmaku) {
-            Danmu danmu = new Danmu(0, "", "张三", "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈");
-            danmuControl.addDanmu(danmu);
-        } else if (v == mBtnSendDanmakus) {
-            Boolean b = (Boolean) mBtnSendDanmakus.getTag();
-            timer.cancel();
-            if (b == null || !b) {
-                mBtnSendDanmakus.setText(R.string.cancel_sending_danmakus);
-                timer = new Timer();
-                timer.schedule(new AsyncAddTask(), 0, 1000);
-                mBtnSendDanmakus.setTag(true);
-            } else {
-                mBtnSendDanmakus.setText(R.string.send_danmakus);
-                mBtnSendDanmakus.setTag(false);
-            }
-        }
-    }
-
-    Timer timer = new Timer();
-
-    class AsyncAddTask extends TimerTask {
-
-        @Override
-        public void run() {
-            for (int i = 0; i < 20; i++) {
-                Danmu danmu = new Danmu(0, "", "张三", "我");
-                danmuControl.addDanmu(danmu);
-                SystemClock.sleep(20);
-            }
+        String avator = "http://g.hiphotos.baidu.com/image/h%3D200/sign=9b2f9371992397ddc9799f046983b216/dc54564e9258d1094dc90324d958ccbf6c814d7a.jpg";
+        String name = "张三";
+        String content = editText.getText().toString().trim();
+        if (content != null && content.length() > 0) {
+            danmuControl.addDanmu(avator, name, content);
+        } else {
+            Toast.makeText(this, "发送内容为空", Toast.LENGTH_LONG).show();
         }
     }
 }

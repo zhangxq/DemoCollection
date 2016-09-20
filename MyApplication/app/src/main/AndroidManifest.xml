@@ -33,7 +33,9 @@
 
         <activity android:name=".progressdemo.ProgressActivity" />
         <activity android:name=".imagescrolldemo.ScrollImageActivity" />
-        <activity android:name=".danmudemo.DanmuActivity" />
+        <activity
+            android:name=".danmudemo.DanmuActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".editmovedemo.EditMoveActivity"
             android:windowSoftInputMode="adjustResize" />
