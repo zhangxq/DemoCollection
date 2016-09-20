@@ -4,3 +4,6 @@ build/*
 /build/
 /.gradle/
 /MyApplication.iml
+/gradlew
+/gradlew.bat
+/local.properties
