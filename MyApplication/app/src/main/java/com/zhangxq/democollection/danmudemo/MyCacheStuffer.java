@@ -67,6 +67,7 @@ public class MyCacheStuffer extends BaseCacheStuffer {
             canvas.drawBitmap((Bitmap) danmaku.tag, null, new RectF(left + AVATAR_PADDING, AVATAR_PADDING, left + AVATAR_PADDING + AVATAR_DIAMETER, AVATAR_DIAMETER + AVATAR_PADDING), paint);
         }
         paint.setTextSize(TEXT_SIZE);
+        
         paint.setColor(NICK_COLOR);
         paint.setShadowLayer(1, 1, 4, NICK_SHADOW_COLOR);
         canvas.drawText(text[0], left + AVATAR_DIAMETER + AVATAR_PADDING * 2 + TEXT_LEFT_PADDING, top - TEXT_TOP_PADDING + AVATAR_PADDING, paint);
