@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".toucheventdemo.TouchEventActivity" />
         <activity android:name=".androidwheeldemo.AndroidWheelActivity" />
         <activity android:name=".retrofitdemo.RetrofitActivity" />
@@ -30,7 +29,6 @@
         <activity
             android:name=".toolbardemo.ToolBarDemoActivity"
             android:theme="@style/ThemeToolBar" />
-
         <activity android:name=".progressdemo.ProgressActivity" />
         <activity android:name=".imagescrolldemo.ScrollImageActivity" />
         <activity
@@ -40,6 +38,9 @@
             android:name=".editmovedemo.EditMoveActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".marqueedemo.MarqueeActivity" />
+        <activity android:name=".lifeCycledemo.LifeCycleActivity" />
+        <activity android:name=".lifeCycledemo.LifeCyclePage2Activity"
+            android:theme="@style/Base.Theme.AppCompat.Dialog" />
     </application>
 
 </manifest>

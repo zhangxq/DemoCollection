@@ -16,6 +16,7 @@ import com.zhangxq.democollection.animatordemo.AnimatorActivity;
 import com.zhangxq.democollection.danmudemo.DanmuActivity;
 import com.zhangxq.democollection.editmovedemo.EditMoveActivity;
 import com.zhangxq.democollection.imagescrolldemo.ScrollImageActivity;
+import com.zhangxq.democollection.lifeCycledemo.LifeCycleActivity;
 import com.zhangxq.democollection.listenedscrollviewdemo.ScrollActivity;
 import com.zhangxq.democollection.marqueedemo.MarqueeActivity;
 import com.zhangxq.democollection.progressdemo.ProgressActivity;
@@ -34,7 +35,8 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     String[] items = new String[]{"retrofitDemo", "TouchEventDemo",
             "androidWheelDemo", "animatorDemo", "actionBarDemo",
             "listenedScrollDemo", "toolbarDemo", "progressDemo",
-            "scrollImageDemo", "danmuDemo", "editMoveDemo", "marqueeDemo"};
+            "scrollImageDemo", "danmuDemo", "editMoveDemo", "marqueeDemo",
+            "lifeCycleDemo"};
     private ListAdapter adapter;
 
     @Override
@@ -98,6 +100,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             case 11:
                 Intent intent11 = new Intent(this, MarqueeActivity.class);
                 startActivity(intent11);
+                break;
+            case 12:
+                Intent intent12 = new Intent(this, LifeCycleActivity.class);
+                startActivity(intent12);
+                break;
             default:
                 break;
         }
